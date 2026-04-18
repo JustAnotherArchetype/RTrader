@@ -1,0 +1,47 @@
+[
+  {
+    "ticker": "NVDA.nq",
+    "side": "buy",
+    "type": "limit",
+    "volume": 10,
+    "price": 150.0,
+    "take_profit": 155.0,
+    "stop_loss": 148.0
+  },
+  {
+    "ticker": "NVDA.nq",
+    "side": "buy",
+    "type": "limit",
+    "volume": 10,
+    "price": 151.0,
+    "take_profit": 155.0,
+    "stop_loss": 148.0
+  },
+  {
+    "ticker": "NVDA.nq",
+    "side": "buy",
+    "type": "limit",
+    "volume": 10,
+    "price": 152.0,
+    "take_profit": 155.0,
+    "stop_loss": 148.0
+  },
+  {
+    "ticker": "NVDA.nq",
+    "side": "buy",
+    "type": "limit",
+    "volume": 10,
+    "price": 153.0,
+    "take_profit": 155.0,
+    "stop_loss": 148.0
+  },
+  {
+    "ticker": "NVDA.nq",
+    "side": "buy",
+    "type": "limit",
+    "volume": 10,
+    "price": 154.0,
+    "take_profit": 155.0,
+    "stop_loss": 148.0
+  }
+]
