@@ -1,3 +1,26 @@
+import requests
+import json
+import time
+import logging
+from typing import Dict, List, Optional, Any
+from datetime import datetime
+import os
+
+from scripts import RTrader
+from scripts import GridStrategy
+from scripts import build_sample_grid
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('trading.log'),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
 def main():
 
     # API Configuration
@@ -6,10 +29,10 @@ def main():
     BASE_URL = "https://api.stockstrader.com/api/v1/"
     
     # Create example grid file for testing
-    create_example_grid_file()
+    build_sample_grid()
     
     # Initialize API client
-    client = RoboMarketsGridTrader(
+    client = RTrader(
         api_key=API_KEY,
         account_id=ACCOUNT_ID,
         base_url=BASE_URL
@@ -17,25 +40,7 @@ def main():
    
     # Initialize grid strategy
     strategy = GridStrategy(client, grid_file="grid.txt")
-    
-    # Parse command line arguments
-    import sys
-    
-    if len(sys.argv) > 1:
-        if sys.argv[1] == "--sync":
-            # One-time sync only
-            strategy.sync_orders()
-        elif sys.argv[1] == "--monitor":
-            # Continuous monitoring with default 60 second interval
-            interval = int(sys.argv[2]) if len(sys.argv) > 2 else 60
-            strategy.run_monitoring_loop(check_interval=interval)
-        else:
-            print("Usage:")
-            print("  python robomarkets_grid.py --sync        # One-time order sync")
-            print("  python robomarkets_grid.py --monitor [N] # Monitor every N seconds")
-    else:
-        # Default: one-time sync
-        strategy.sync_orders()
+        
 
 if __name__ == "__main__":
     main()
