@@ -1,10 +1,12 @@
 import json
 import time
 import logging
-from typing import Dict, List, Optional, Any
+from typing import Dict, List
 import os
 
-from scripts import RTrader
+from RTrader import RTrader
+
+logger = logging.getLogger()
 
 class GridStrategy():
     def __init__(self, api_client: RTrader, grid_file: str = 'grid.txt'):

@@ -1,3 +1,10 @@
+import requests
+import logging
+
+from typing import Dict, List, Optional
+
+logger = logging.getLogger()
+
 class RTrader:
     def __init__(self, api_key: str, account_id: str,
                  base_url: str = 'https://api.stockstrader.com/api/v1/'):

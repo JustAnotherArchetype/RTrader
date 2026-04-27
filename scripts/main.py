@@ -2,13 +2,8 @@ import requests
 import json
 import time
 import logging
-from typing import Dict, List, Optional, Any
 from datetime import datetime
 import os
-
-from scripts import RTrader
-from scripts import GridStrategy
-from scripts import build_sample_grid
 
 # Configure logging
 logging.basicConfig(
@@ -19,7 +14,13 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
-logger = logging.getLogger(__name__)
+
+logger = logging.getLogger()
+
+from GridStrategy import GridStrategy
+from RTrader import RTrader
+from build_sample_grid import build_sample_grid
+
 
 def main():
 
@@ -40,6 +41,9 @@ def main():
    
     # Initialize grid strategy
     strategy = GridStrategy(client, grid_file="grid.txt")
+
+    # Execute the strategy
+    strategy.execute()
         
 
 if __name__ == "__main__":
